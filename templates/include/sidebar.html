@@ -1,0 +1,6 @@
+<h4>Popular tags:</h4>
+{% for tag in top_tags %} <span> <a href="{% url 'tag' tag_name=tag.title %}"> {{tag.title}} </a> </span> {% endfor %}
+<h4>Best members:</h4>
+<ul>
+     {% for users in top_users %} <li>{{users.user.username}}</li> {% endfor %}
+</ul>

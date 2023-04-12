@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+<div class="mt-3 mb-3">
+    {% if new %} <h1 class="d-inline me-3">New questions</h1> <a href="{% url 'actual' %}" class="d-inline">Best questions</a> {% else %}
+    <h1 class="d-inline me-3">Best questions</h1> <a href="{% url 'index' %}" class="d-inline">New questions</a>
+    {% endif %}
+</div>
+<div class="col-lg">
+    {% for question in questions %}
+                {% include 'include/question.html' %}
+    {% endfor %}
+    {% include 'include/paginator.html' %}
+</div>
+{% endblock %}

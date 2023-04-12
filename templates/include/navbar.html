@@ -1,0 +1,33 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+        <div class="container">
+		<a class="navbar-brand" href="{% url 'index' %}">Ask The Question</a>
+            <div class="collapse navbar-collapse d-flex" id="navbarCollapse">
+                <form class="d-inline-flex flex-grow-1" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <form class="d-flex me-3">
+			<a href="{% url 'newq' %}" class="btn btn-outline-success bg-white" type="submit">Ask</a>
+                </form>
+            </div>
+            {% if auth %}
+            <div class="row user-data">
+                <div class="col-3">
+                    <div class="user-avatar"><img src="/static/img/ava2.jpg" alt="avatar"></div>
+                </div>
+                <div class="col-9 text-white text-center fw-semibold">
+                    <div class="nickname">Dukuev Umalat</div>
+                    <div class="panel text-center d-flex justify-content-around">
+                        <a href="#" class="link-light"> Log out</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                 <div class="panel text-center">
+                        <a href="{% url 'login' %}" class="link-light mx-2"> Log in</a>
+                        <a href="{% url 'register' %}" class="link-light"> Register</a>
+                    </div>
+            {% endif %}
+        </div>
+    </nav>
+</header>
